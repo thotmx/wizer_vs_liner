@@ -1,5 +1,5 @@
 module Services
-  module Adn
+  module Dna
     class MutantDetector
       def call(dna)
         return false if dna.empty?
