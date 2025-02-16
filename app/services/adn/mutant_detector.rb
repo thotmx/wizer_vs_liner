@@ -24,11 +24,9 @@ module Services
       end
 
       def sum_matches_in_row(matrix)
-        matches = 0
-        matrix.each do |row|
-          matches += matches_in_row(row)
+        matrix.inject(0) do |sum, row|
+          sum + matches_in_row(row)
         end
-        matches
       end
 
       def matches_in_vertical(dna)
