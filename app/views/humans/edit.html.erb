@@ -1,8 +1,7 @@
 <main class="container">
-  <%= link_to(sanitize("&larr; Human Catalog"), humans_path, class: "btn btn--secondary") %>
-
   <div class="header">
     <h1>Altering this human...</h1>
+    <%= link_to(sanitize("&larr; Human Catalog"), humans_path, class: "btn btn--secondary") %>
   </div>
 
   <%= render "form" %>

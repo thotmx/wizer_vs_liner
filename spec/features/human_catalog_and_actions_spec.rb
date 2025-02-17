@@ -10,11 +10,11 @@ RSpec.describe 'Creating a human', type: :feature do
     click_on 'Create Human'
     visit humans_path
     expect(page).to have_content('John Doe')
-    expect(page).to have_content('mutant')
+    expect(page).to have_content('Liner')
   end
 
   scenario 'User edit already created human' do
-    Human.create(name: 'John Doe', human_type: 'mutant', dna: "AAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA")
+    Human.create(name: 'John Doe', human_type: 'liner', dna: "AAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA")
     visit root_path
     click_on 'Alter human'
     expect(page).to have_content('Human Catalog')
@@ -23,15 +23,15 @@ RSpec.describe 'Creating a human', type: :feature do
     click_on 'Update Human'
     visit humans_path
     expect(page).to have_content('John Wick')
-    expect(page).to have_content('mutant')
+    expect(page).to have_content('Liner')
   end
 
   scenario 'User destroy already created human' do
-    Human.create(name: 'John Doe', human_type: 'mutant', dna: "AAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA")
+    Human.create(name: 'John Doe', human_type: 'liner', dna: "AAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA")
     visit root_path
     click_on 'Destroy human'
     visit humans_path
     expect(page).not_to have_content('John Doe')
-    expect(page).not_to have_content('mutant')
+    expect(page).not_to have_content('Liner')
   end
 end

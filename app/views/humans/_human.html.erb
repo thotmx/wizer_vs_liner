@@ -3,42 +3,46 @@
     <p class="human-label"> Name</p>
     <%= link_to human.name, human_path(human) %>
   </div>
-    <div class="human__info">
-      <span class="<%= human.human_type %>"><%= human.human_type %></span>
-    </div>
-    <% if local_assigns[:dna] %>
-      <table>
-        <tbody>
-          <% human.dna.split("\n") do |row| %>
-            <tr>
-              <%- row.chars.each do |value| %>
-                <td><%= value %></td>
-              <% end %>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% end %>
-    <div class="human__actions">
-      <%= link_to edit_human_path(human), class: "btn btn--secondary" do %>
-        <%= image_tag "edit.svg", alt: "Alter human" %>
-        Alter human 
-      <% end %>
-      <%= link_to human_path(human), data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn--danger" do %>
-        <%= image_tag "remove.svg", alt: "Destroy human" %>
-        Destroy human
-      <% end %>
-    </div>
+  <div class="human__info">
+    <%= image_tag "#{human.human_type}.svg", alt: human.human_type %>
+    <span class="<%= human.human_type %>">
+      <%= human.human_type.capitalize %>
+    </span>
+  </div>
+  <% if local_assigns[:dna] %>
+    <h2>DNA</h2>
+    <table>
+      <tbody>
+        <% human.dna.split("\n") do |row| %>
+          <tr>
+            <%- row.chars.each do |value| %>
+              <td><%= value %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
   <% end %>
+  <div class="human__actions">
+    <%= link_to edit_human_path(human), class: "btn btn--secondary" do %>
+      <%= image_tag "edit.svg", alt: "Alter human" %>
+      Alter human 
+    <% end %>
+    <%= link_to human_path(human), data: { "turbo-confirm": "Do you want to destroy this human?", "turbo-method": :delete }, class: "btn btn--danger" do %>
+      <%= image_tag "remove.svg", alt: "Destroy human" %>
+      Destroy human
+    <% end %>
+  </div>
+<% end %>
 
-  <% if defined?(wrap_in) %>
-    <div class="human-wrapper">
-      <div class="human">
-        <%= @rendered_human %>
-      </div>
-    </div>
-  <% else %>
-    <div class="human-block">
+<% if defined?(wrap_in) %>
+  <div class="human-wrapper">
+    <div class="human">
       <%= @rendered_human %>
     </div>
-  <% end %>
+  </div>
+<% else %>
+  <div class="human-block">
+    <%= @rendered_human %>
+  </div>
+<% end %>

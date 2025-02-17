@@ -1,6 +1,6 @@
 class Human < ApplicationRecord
   validates :name, :dna, presence: true
-  before_save :check_for_mutant
+  before_save :check_for_liner
 
   attr_accessor :dna_matrix
 
@@ -17,11 +17,11 @@ class Human < ApplicationRecord
     end
   end
 
-  def check_for_mutant
+  def check_for_liner
     if Dna::MutantDetector.call(dna.split("\n"))
-      self.human_type = "mutant"
+      self.human_type = "liner"
     else
-      self.human_type = "human"
+      self.human_type = "wizer"
     end
   end
 

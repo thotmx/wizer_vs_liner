@@ -14,7 +14,7 @@ RSpec.describe Human, type: :model do
   it 'save a valid human' do
     human = Human.new(name: 'Test', dna: "AAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA\nAAAAAA")
     expect(human.save).to be true
-    expect(human.human_type).to eq("mutant")
+    expect(human.human_type).to eq("liner")
   end
 
   describe "dna_matrix_to_string" do
