@@ -1,5 +1,5 @@
 class HumansController < ApplicationController
-  before_action :set_human, only: [:show, :edit, :update, :destroy]
+  before_action :set_human, only: [ :show, :edit, :update, :destroy ]
 
   def index
     @humans = Human.all
