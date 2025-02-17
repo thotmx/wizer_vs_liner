@@ -52,6 +52,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 7.0.0'
   gem 'capybara'
   gem 'webdrivers'
+  gem 'pry'
 end
 
 group :development do
