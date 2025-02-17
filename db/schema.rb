@@ -10,11 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_02_16_230402) do
+ActiveRecord::Schema[8.0].define(version: 2025_02_17_002023) do
   create_table "humans", force: :cascade do |t|
     t.string "name"
     t.string "dna"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "human_type"
   end
 end

@@ -1,0 +1,9 @@
+<div class="human">
+  <%= link_to human.name, human_path(human) %>
+  <div class="human__info">
+    <p><%= human.human_type %></p>
+  </div>
+  <div class="human__actions">
+    <%= link_to "Edit", edit_human_path(human), class: "btn btn--secondary" %>
+    <%= link_to "Delete", human_path(human), data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn--danger" %>
+</div>

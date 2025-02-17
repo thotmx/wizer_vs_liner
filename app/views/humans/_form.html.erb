@@ -1,0 +1,21 @@
+<%= form_with model: @human do |form| %>
+  <%- if @human.errors.any? %>
+    <div class="error-message">
+      <%= @human.errors.full_messages.to_sentence.capitalize %>
+    </div>
+  <% end %>
+
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <div class="matrix">
+    <h2>DNA</h2> 
+    <%- (0..5).each do |i| %>
+      <%- (0..5).each do |j| %>
+        <%= select_tag ("human[dna_matrix][#{i}][#{j}]"), options_for_select(["A","T","C", "G"], selected: @human.dna_matrix[i][j] || nil) %>
+      <%- end %>
+      <br/>
+    <%- end %>
+  </div>
+  <%= form.submit %>
+<% end %>
