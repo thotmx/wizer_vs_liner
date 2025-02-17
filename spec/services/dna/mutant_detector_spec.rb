@@ -1,7 +1,7 @@
 require 'rails_helper'
 
-describe Services::Dna::MutantDetector do
-  let(:service) { Services::Dna::MutantDetector }
+describe Dna::MutantDetector do
+  let(:service) { Dna::MutantDetector }
 
   describe '#call' do
     context 'when the dna is empty' do

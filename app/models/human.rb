@@ -18,7 +18,7 @@ class Human < ApplicationRecord
   end
 
   def check_for_mutant
-    if Services::Dna::MutantDetector.call(dna.split("\n"))
+    if Dna::MutantDetector.call(dna.split("\n"))
       self.human_type = "mutant"
     else
       self.human_type = "human"
