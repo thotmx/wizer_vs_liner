@@ -1,9 +1,42 @@
 @import "tailwindcss";
 
+.human-wrapper {
+  @apply block;
+}
+
+.human {
+  @apply flex justify-between items-center;
+}
+
+.human-block {
+  @apply block m-6 p-4;
+}
+
+.human-label {
+  @apply text-sm font-bold;
+}
+
+.header {
+  @apply flex justify-between items-center m-4;
+}
+
 h1 {
-  @apply text-4xl font-bold;
+  @apply text-4xl font-bold text-red-500;
 }
 
 a {
   @apply text-blue-500;
 }
+
+a.btn {
+  @apply inline-flex bg-gray-200 text-black px-4 py-2 rounded;
+}
+
+a.btn img {
+  @apply fill-current stroke-current px-2;
+}
+
+a.btn:hover {
+  @apply bg-red-500 text-white;
+}
+

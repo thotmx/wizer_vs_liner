@@ -1,22 +1,44 @@
-<div class="human">
-  <%= link_to human.name, human_path(human) %>
-  <div class="human__info">
-    <p><%= human.human_type %></p>
+<% @rendered_human = capture do %>
+  <div class="human__name">
+    <p class="human-label"> Name</p>
+    <%= link_to human.name, human_path(human) %>
   </div>
-  <% if local_assigns[:dna] %>
-  <table>
-    <tbody>
-      <% human.dna.split("\n") do |row| %>
-        <tr>
-          <%- row.chars.each do |value| %>
-            <td><%= value %></td>
+    <div class="human__info">
+      <span class="<%= human.human_type %>"><%= human.human_type %></span>
+    </div>
+    <% if local_assigns[:dna] %>
+      <table>
+        <tbody>
+          <% human.dna.split("\n") do |row| %>
+            <tr>
+              <%- row.chars.each do |value| %>
+                <td><%= value %></td>
+              <% end %>
+            </tr>
           <% end %>
-        </tr>
+        </tbody>
+      </table>
+    <% end %>
+    <div class="human__actions">
+      <%= link_to edit_human_path(human), class: "btn btn--secondary" do %>
+        <%= image_tag "edit.svg", alt: "Alter human" %>
+        Alter human 
       <% end %>
-    </tbody>
-  </table>
+      <%= link_to human_path(human), data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn--danger" do %>
+        <%= image_tag "remove.svg", alt: "Destroy human" %>
+        Destroy human
+      <% end %>
+    </div>
   <% end %>
-  <div class="human__actions">
-    <%= link_to "Alter human", edit_human_path(human), class: "btn btn--secondary" %>
-    <%= link_to "Destroy human", human_path(human), data: { "turbo-confirm": "Are you sure?", "turbo-method": :delete }, class: "btn btn--danger" %>
-</div>
+
+  <% if defined?(wrap_in) %>
+    <div class="human-wrapper">
+      <div class="human">
+        <%= @rendered_human %>
+      </div>
+    </div>
+  <% else %>
+    <div class="human-block">
+      <%= @rendered_human %>
+    </div>
+  <% end %>

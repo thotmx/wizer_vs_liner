@@ -2,8 +2,11 @@
   <div class="header">
     <h1>Humans</h1>
 
-    <%= link_to "Create a new human", new_human_path, class: "btn btn--primary" %>
+    <%= link_to new_human_path, class: "btn btn--primary" do %>
+      <%= image_tag "microscope.svg", alt: "Create a new human" %>
+      Create a new human
+    <% end %>
   </div>
 
-  <%= render @humans, dna: false %>
+  <%= render @humans, dna: false, wrap_in: true %>
 </main>
