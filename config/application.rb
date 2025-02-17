@@ -8,7 +8,6 @@ Bundler.require(*Rails.groups)
 
 module WizerVsLiner
   class Application < Rails::Application
-
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 8.0
 
@@ -17,8 +16,6 @@ module WizerVsLiner
     # Common ones are `templates`, `generators`, or `middleware`, for example.
     config.autoload_lib(ignore: %w[assets tasks])
     config.dna = config_for(:dna)
-
-    #Dir[Rails.root.join("app", "services", "**", "*.rb")].each { |file| require_relative file }
 
     # Configuration for the application, engines, and railties goes here.
     #
