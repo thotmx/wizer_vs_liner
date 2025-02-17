@@ -1,24 +1,7 @@
-# README
+# Wizers vs Liners
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Challenge for Wizeline's recruitment process.
 
-Things you may want to cover:
+Deployed here: https://wizer-vs-liner-8r3i.onrender.com
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+It's a free deployment, so it may take a few seconds to load.
