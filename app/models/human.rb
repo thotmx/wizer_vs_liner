@@ -27,7 +27,7 @@ class Human < ApplicationRecord
 
   def initialize_matrix
     if self.dna.nil?
-      self.dna_matrix = Array.new(6) { Array.new(6) { "A" } }
+      self.dna_matrix = Array.new(Rails.configuration.dna["rows"]) { Array.new(Rails.configuration.dna["cols"]) { "A" } }
     else
       self.dna_matrix = dna.split("\n").map { |row| row.split("") }
     end

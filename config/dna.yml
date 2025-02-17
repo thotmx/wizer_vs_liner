@@ -1,0 +1,14 @@
+default: &default
+  rows: 6
+  cols: 6
+  mutant_sequence: 4
+  number_of_mutations: 1
+
+development:
+  <<: *default
+ 
+test:
+  <<: *default
+
+production:
+  <<: *default
