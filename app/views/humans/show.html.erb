@@ -1,5 +1,5 @@
 <main class="container">
-  <%= link_to(sanitize("&larr; Back to humans"), humans_path, class: "btn btn--secondary") %>
+  <%= link_to(sanitize("&larr; Human Catalog"), humans_path, class: "btn btn--secondary") %>
 
-  <%= render @human %>
+  <%= render @human, dna: true %>
 </main>

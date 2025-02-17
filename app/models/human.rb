@@ -26,7 +26,7 @@ class Human < ApplicationRecord
   end
 
   def initialize_matrix
-    if dna_matrix.nil?
+    if self.dna.nil?
       self.dna_matrix = Array.new(6) { Array.new(6) { "A" } }
     else
       self.dna_matrix = dna.split("\n").map { |row| row.split("") }

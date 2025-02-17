@@ -12,7 +12,7 @@
     <h2>DNA</h2> 
     <%- (0..5).each do |i| %>
       <%- (0..5).each do |j| %>
-        <%= select_tag ("human[dna_matrix][#{i}][#{j}]"), options_for_select(["A","T","C", "G"], selected: @human.dna_matrix[i][j] || nil) %>
+        <%= select_tag ("human[dna_matrix][#{i}][#{j}]"), options_for_select(["A","T","C", "G"], selected: @human.dna_matrix[i][j]) %>
       <%- end %>
       <br/>
     <%- end %>
